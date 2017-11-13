@@ -215,7 +215,6 @@ public class Linkedlist {
 	public void deleteNodewith(Node head,Node n){
 		if(head==n){
 			if(head.next == null){
-				System.out.println("There is only one element and hence we are not deleting any data" );
 				return;
 			}
 			head.data = head.next.data;
@@ -250,6 +249,144 @@ public class Linkedlist {
 			return;
 		}
 	}
+	
+	public void recDelete(int k,Node n,int cur){
+		 if(k==1){
+			 head = n.next ;
+			 n = null;
+		 }
+		 else if( k == cur+1 && n.next!=null){
+			Node temp = n.next;			
+			if( n.next.next!=null){
+				n.next = n.next.next;
+			}else{
+				n.next = null;
+			}
+			temp = null;
+		}
+		 else recDelete(k, n.next, cur+1);
+	}
+	
+	
+	public void printReverseList(Node n){
+		if(n==null) return;
+		printReverseList(n.next) ;
+		System.out.println(n.data);
+	}     
+	
+	void swapNode(int x,int y){
+		if(x==y)
+		return ;	
+		
+		Node prevX = null,currX = head;
+		printList();
+		while(currX!=null && currX.data!=x){
+			prevX = currX;
+			currX = currX.next;
+		}	
+
+		Node prevY = null,currY = head;
+		while(currY!=null&& currY.data!=y){
+			prevY = currY;
+			currY = currY.next;	
+		}
+		
+
+		if(currX==null ||currY==null)
+		return;
+
+		if(prevX!=null)
+		{	
+			prevX.next = currY;
+		}
+		else
+		{
+			head = currY;
+		}
+		
+		if(prevY!=null)
+		{	prevY.next = currX;
+		}
+		else
+		{ 
+			head = currX;
+		}
+		System.out.println("currentX "+currX.data + "Current Y"+currY.data);
+		printList();
+
+		Node temp = currX.next;
+		currX.next = currY.next;
+		currY.next = temp;
+
+		System.out.println("currentX "+currX.data + "Current Y"+currY.data);
+	}          
+	public void printMiddle(){
+		Node slw_pnt = head;
+		Node fast_pnt = head;
+		if(head!=null){
+			while (fast_pnt!=null && fast_pnt.next!=null){
+				fast_pnt = fast_pnt.next.next;
+				slw_pnt = slw_pnt.next;
+			}
+			System.out.println("Data @ the middle of list is :"+slw_pnt.data);
+		}
+
+	}
+	public void swapNodesSample(int x, int y)
+    {
+        // Nothing to do if x and y are same
+        if (x == y) return;
+ 
+        // Search for x (keep track of prevX and CurrX)
+        Node prevX = null, currX = head;
+        while (currX != null && currX.data != x)
+        {
+            prevX = currX;
+            currX = currX.next;
+        }
+ 
+        // Search for y (keep track of prevY and currY)
+        Node prevY = null, currY = head;
+        while (currY != null && currY.data != y)
+        {
+            prevY = currY;
+            currY = currY.next;
+        }
+ 
+        // If either x or y is not present, nothing to do
+        if (currX == null || currY == null)
+            return;
+ 
+        // If x is not head of linked list
+        if (prevX != null)
+            prevX.next = currY;
+        else //make y the new head
+            head = currY;
+ 
+        // If y is not head of linked list
+        if (prevY != null)
+            prevY.next = currX;
+        else // make x the new head
+            head = currX;
+ 
+        // Swap next pointers
+        Node temp = currX.next;
+        currX.next = currY.next;
+        currY.next = temp;
+    }     
+    
+    public int countRepeat(int search_data){
+    	Node current = head;
+    	int count = 0;
+    	while(current!=null){
+    		if(current.data == search_data){
+    			count++;
+    		}
+    		current=current.next;
+    	}
+    	System.out.println("Data repeated :"+count);
+    	return count;
+    }            
 	/**
 	 * @param args
 	 */
@@ -258,9 +395,10 @@ public class Linkedlist {
 		linklist1.head = new Node(100);
 		Node second = new Node(200);
 		Node third = new Node(300);
-
+		Node fourth = new Node(400);
 		linklist1.head.next = second;
 		second.next = third;
+		third.next = fourth;
 		/*System.out.println("Enter new node to be added at first");
 		Scanner in = new Scanner(System.in);
 		int data = in.nextInt();
@@ -300,11 +438,20 @@ public class Linkedlist {
 		System.out.println("Size of the list is" + linklist1.length());
 		linklist1.clearList();
 		System.out.println("Size of the list is" + linklist1.getCount());*/
-		linklist1.printList();
+		/*linklist1.printList();
 		linklist1.deleteNode(head,head);
 		linklist1.printList();
-		linklist1.deleteFirstNode();
+		linklist1.deleteFirstNode();*/
 		linklist1.printList();
+		//linklist1.recDelete(5, head, 1);
+		//System.out.println("Reverse List");
+		//linklist1.printReverseList(head);
+
+		linklist1.swapNodesSample(200,400);
+		linklist1.printList();
+		//linklist1.printMiddle();
+		linklist1.countRepeat(100);
+		//linklist1.printList();
 	}
 	}
 
