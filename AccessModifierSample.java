@@ -1,4 +1,4 @@
-package OCA.Assessment1;
+package oca.assessment1;
 /*
 * 20-11-2017 : This class is part of assessment for OCA certification SE8 Programmer 1 by Boyarsky Jeanne, Selikoff Scott
 * @author : Manasa Venkatesh
