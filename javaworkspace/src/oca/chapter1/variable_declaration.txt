@@ -1,0 +1,22 @@
+boolean b1, b2; //Legal
+String s1 = "1", s2; //Legal
+double d1, double d2; //Not valid
+int i1; int i2; //Legal --> 
+int i1;
+int i2;
+
+int i3; i4; //Not valid
+int i3;
+i4;
+
+Legal Examples
+okidentifier
+$OK2Identifier
+_alsoOK1d3ntifi3r
+__SStillOkbutKnotsonice$
+
+These examples are not legal:
+3DPointClass // identifiers cannot begin with a number
+hollywood@vine // @ is not a letter, digit, $ or _
+*$coffee // * is not a letter, digit, $ or _
+public // public is a reserved word

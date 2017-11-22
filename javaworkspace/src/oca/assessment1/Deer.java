@@ -28,7 +28,7 @@ public class Deer {
 	public Deer() { System.out.println("Deer"); }
 	public Deer(int age) { System.out.println("DeerAge"); }
 	private boolean hasHorns() { return false;} //This method is always called when the refrence belongs to parent
-  //public boolean hasHorns() { return false;} //This method can be called from teh child class as it is public
+   //public boolean hasHorns() { return false;} //This method can be called from teh child class as it is public
 	public static void main(String[] args){
 		Deer deer = new Reindeer(5);
 		System.out.println("," + deer.hasHorns());

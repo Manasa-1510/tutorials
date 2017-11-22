@@ -1,4 +1,7 @@
 package oca.assessment1;
+
+import oca.*;
+import oca.chapter1.Zoo;
 /*
 * 21-11-2017 : This class is part of assessment for OCA certification
 * @author : Manasa Venkatesh
@@ -28,6 +31,7 @@ public class Egret{
 	}
 
 	public static void main(String[] args){
+		Zoo zoo = new Zoo();
 
 		Egret egret = new Egret();
 		System.out.println("Color:" + egret.color);

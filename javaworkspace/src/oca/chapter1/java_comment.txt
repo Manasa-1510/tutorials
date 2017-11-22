@@ -1,0 +1,10 @@
+/*
+* // anteater
+*/ - Multiline
+// bear - single line
+// // cat - singel line
+// /* dog */ - single
+/* elephant */- mUltiline
+/*
+* /* ferret */ - invalid
+*/
