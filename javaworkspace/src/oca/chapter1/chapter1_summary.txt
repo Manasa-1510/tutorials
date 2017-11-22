@@ -1,0 +1,119 @@
+Chapter 1:
+
+	- Java virtual Machine manages start of a java process.
+	- main() method is the gateway for start of a java process.The java program execution begins from  main() method.
+	- Byte code contains instructions that JVM knows how to execute.
+	- Each file can have only one public class and it should match the name of the file including case and have .java extension.
+	- Access modifier : Declares the method's/class/field level of exposure to the callers's in the program.
+	- Static binds a method to class and it can be called with class name.
+	- All command-line arguments are treated as String objects
+	- JDK is needed to compile java code as it has a compiler.
+	- To run java code JRE is enough.
+	- Java class runs on JVM and hence it runs on any machine having java.
+	- Packages are logical grouping of classes. Import statements are used to tell java which package to look into.
+	- Java.lang is automatically imported.
+	- A wildcard in package matches only the class names. There can be only one wildcard and it must be in the end.
+	- Methods cannot be imported only classes can be imported.
+	- When a class is found in multiple packages java gives compiler error.
+	import java.util.*;
+	import java.sql.*; // DOES NOT COMPILE
+	Date date //ambigous
+	- Class names explicitly imported have precedence over wildcards.
+	- If same classnames in different package needs to be used at the same time. like:
+		import java.util.Date;
+		import java.sql.Date;
+	- Then use fully qualified name for variables like 
+		○ java.util.Date date;
+		○  java.sql.Date sqlDate;
+	- Classpath and jars
+	- Add jars to the the classpath as following :
+		○  java -cp ".;C:\temp\someOtherLocation;c:\temp\myJar.jar" myPackage.MyClass
+
+Variables
+	- Declaring a variable give s java a place to store the reference to the object 
+	- Use new to actually create the object.
+	- Constructor name matches the name of the class andit has no return type and it is used next to new while creating an object .
+	- Instance initializers : code blocks which appear outside a method.
+	- Code blocks in a code is equals to the pairs of {} curly braces.
+
+Order of Initialization
+	- Fields and initializer blocks are run in the order they appear.
+	- Constructors run after all fields and initializer blocks have run.
+	- A variable cannot be referenced before it is initialized. Hence order of the fields matter.
+
+Object References and Primitives
+	- Primitives : Hold the values in the memory where varaibles are allocated
+	- 8 primitive data types are present in java.
+	- Boolean - true or false,byte-8bit,short-16 bit,int- 32 bit,long - 64 bit,float-32 bit floating point,double-64 bit floating point,char-unicode.
+	- When a number is present in the code it is called literal.
+	- For long add L,for float add f  and for double add d as postfix value
+	- Other formats Octal - Use 0 as prefix
+				□ Hexa - Use 0x
+				□ Binary - Use 0b
+	- Java & allows underscore between numbers for readability. Like : int million2 = 1_000_000;
+	- Underscore cannot be added in the following positions:
+		○ Beginning
+		○ Ending
+		○ Before a decimal point
+		○ After a decimal point
+	- Reference Types
+	- They do not hold the value of the objects they refer to.
+	- A reference " points " to an object by storing the memory address of where the object is located.(Pointer)
+	- Value for a reference can be assigned in two ways:
+		○ A reference can be assigned to another object of the same type. 
+		○ A reference can be assigned to a new object using the new keyword.
+	- The reference types can be assigned null, means they do not refer to any object currently.
+	- Primitive types cannot be assigned a null value.
+	Primitive Type	Reference Type
+	No null value can be assigned	Null can be assigned
+	No methods are declared on them	These can be used to call methods when their value is not null
+
+Declaring and initializing variable
+	
+	- Variable : Name for a piece of memory that stores data.
+	- Syntax : Variable_type variable_name assignment_operator value
+	- Multiple variables of same type can be declared and initialized in a single line .
+	- int num, String value; // DOES NOT COMPILE
+	Int num,int num2; //COMPILES
+	- A semicolon (;) separates statements in Java.
+
+Identifiers
+
+	- Rules for identifiers:
+		○ Name must begin with letter or symbol $ or _.
+		○ Subsequent characters may also be number.
+		○ Java reserved words cannot be used.
+	- CamelCase  - Each word begins with an upper case.
+	- Methods and variable names begin with lower case and follow camel case.
+	- Class names begin with an uppercase followed by camel case.
+	- Java supports Unicode character Set not only english alphabets.
+		
+Default initialization of Variables
+	- Local Variables Variable defined within a method
+	- No default value and has garbage data until initialized.
+	- Compiler will not read variable if value is Uninitialized .
+	- Compiler recognizes variables that have been initialized after their declaration but before they are used.
+	
+Instance and class variables
+	- Class variable uses  keyword static 
+	- Instance and class variables don’t need to be initialized.
+	- They are given a default value.
+	- Default values are null for object and 0/false for primitive.
+
+Variable Scope
+	- Scope refers to that portion of code where a variable can be accessed
+	There are three
+	kinds of variables in Java, depending on their scope: 
+	instance variables, class variables, and local variables
+	
+Garbage Collection
+	-  If all references to the object have gone out of scope or the object is no longer having any reference than garabage collection occurs.
+	- The object and reference are different from each other. The reference is the pointer which points to object and it can be reassigned but objects are in heap and do not move.
+	- System.gc() does not guarantee that garbage collection will happen. Java will run gc based on memory availability and also if an object becomes unreachable in the code then the gc will be run.
+	- The finalize() method
+	will run once for each object if/when it is fi rst garbage collected
+	
+		
+		
+		
+	
