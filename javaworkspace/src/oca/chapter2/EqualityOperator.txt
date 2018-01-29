@@ -1,0 +1,9 @@
+package oca.chapter2;
+
+public class EqualityOperator{
+	
+	public static void main(String[] args){
+		boolean x = y == false;
+		System.out.println(x);
+	}	
+}
